@@ -5,14 +5,14 @@ services:
     restart: unless-stopped
     depends_on:
       - mariadb
+    environment:
+      - SERVICE_FQDN_RESOURCESPACE_80
     volumes:
       - filestore:/var/www/html/filestore
-      - ./config.php:/var/www/html/include/config.php
-    networks:
-      - frontend
-      - backend
-    ports:
-      - "80:80"
+      - config:/var/www/html/include
+      - /data/coolify/resourcespace/policy.xml:/etc/ImageMagick-6/policy.xml:ro
+    expose:
+      - "80"
 
   mariadb:
     image: mariadb
@@ -22,13 +22,8 @@ services:
       - db.env
     volumes:
       - mariadb:/var/lib/mysql
-    networks:
-      - backend
-
-networks:
-  frontend:
-  backend:
 
 volumes:
   mariadb:
   filestore:
+  config:
