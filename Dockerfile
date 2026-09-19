@@ -54,7 +54,6 @@ RUN rm -f index.html \
  && chmod 777 filestore \
  && chmod -R 777 include/
 
-# Eigen plugin: verbergt contextuele helplinks (?)
 COPY plugins/hidehelp /var/www/html/plugins/hidehelp
 
 # Copy custom entrypoint script
