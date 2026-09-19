@@ -11,6 +11,7 @@ services:
       - filestore:/var/www/html/filestore
       - config:/var/www/html/include
       - /data/coolify/resourcespace/policy.xml:/etc/ImageMagick-6/policy.xml:ro
+      - ./plugins/hidehelp:/var/www/html/plugins/hidehelp:ro
     expose:
       - "80"
 
