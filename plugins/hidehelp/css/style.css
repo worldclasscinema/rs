@@ -1,1 +1,3 @@
 .HelpLink { display: none !important; }
+li:has(> a[href^="https://www.resourcespace.com/knowledge-base"]) { display: none !important; }
+li[title*="Knowledge Base"] { display: none !important; }
